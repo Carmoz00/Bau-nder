@@ -6,3 +6,5 @@ class ModelUser {
     this.email = email;
   }
 }
+
+module.exports = ModelUser;
