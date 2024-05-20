@@ -4,3 +4,5 @@ class ModelDogUser {
     this.id_dog = id_dog;
   }
 }
+
+module.exports = ModelDogUser;
