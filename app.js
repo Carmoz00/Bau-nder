@@ -7,7 +7,12 @@ class App {
   }
 
   signup(username, password, email) {
-    this.users.create(username, password, email);
+    const isValidUsername = this.users.isValidUsername(users.username);
+    if (isValidUsername === true) {
+      this.users.create(username, password, email);
+    } else {
+      console.log("nome in uso");
+    }
   }
 
   login(username, password) {
