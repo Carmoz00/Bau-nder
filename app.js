@@ -1,36 +1,34 @@
-import { ControllerUsers } from './class/Users.js';
-import ControllerDogs from './class/Dogs.js';
-import ControllerDogUser from './class/DogUser.js';
+import ControllerUsers from "./class/User.js";
+import ControllerDogs from "./class/Dogs.js";
+import ControllerDogUser from "./class/DogUser.js";
 
 class App {
-  constructor() {
+  #users = new ControllerUsers();
+  #dogs = new ControllerDogs();
+  #userReviews;
+  #session;
 
-    #users;
-    #dogs;
-    #userReviews;
-    #user;
-    
+  signup(username, password, email) {
+    //const test = this.#users.isValidUsername(this.#users.username);
+    //if (test === true) {
+    this.#users.create(username, password, email);
+    /*} else {
+      console.log("nome in uso");
+    }*/
+  }
+
+  login(username, password) {
+    this.#session = this.#users.get(username, password);
+  }
+
+  logout() {
+    this.#session = null;
+  }
+}
+
+/* constructor() {
     this.#users = new ControllerUsers();
     this.#dogs = new ControllerDogs();
     this.#userReviews = new ControllerDogUser();
     this.#user = null;
-  }
-
-  signup(username, password, email) {
-    const isValidUsername = this.users.isValidUsername(users.username);
-    if (isValidUsername === true) {
-      this.users.create(username, password, email);
-    } else {
-      console.log("nome in uso");
-    }
-  }
-
-  login(username, password) {
-    this.#user = this.users.get(username, password);
-  }
-
-  logout() {
-    this.#user = null;
-  }
-}
-
+  }*/
