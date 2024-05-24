@@ -1,3 +1,5 @@
+const ModelUser = require("../models/Dog.js");
+
 class ControllerUsers {
   #users = [];
 

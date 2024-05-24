@@ -3,7 +3,7 @@ class App {
     this.#users = new ControllerUsers();
     this.#dogs = new ControllerDogs();
     this.#userReviews = new ControllerDogUser();
-    this.#user = null;
+    this.#users = null;
   }
 
   signup(username, password, email) {
@@ -15,6 +15,6 @@ class App {
   }
 
   logout() {
-    this.#user = null;
+    this.#users = null;
   }
 }
