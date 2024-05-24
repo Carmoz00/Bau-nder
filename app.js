@@ -1,8 +1,20 @@
+import { ControllerUsers } from './class/Users.js';
+import ControllerDogs from './class/Dogs.js';
+import ControllerDogUser from './class/DogUser.js';
+
 class App {
-  #users = new ControllerUsers();
-  #dogs = new ControllerDogs();
-  #userReviews = new ControllerDogUser();
-  #user = null;
+  constructor() {
+
+    #users;
+    #dogs;
+    #userReviews;
+    #user;
+    
+    this.#users = new ControllerUsers();
+    this.#dogs = new ControllerDogs();
+    this.#userReviews = new ControllerDogUser();
+    this.#user = null;
+  }
 
   signup(username, password, email) {
     const isValidUsername = this.users.isValidUsername(users.username);
@@ -21,3 +33,4 @@ class App {
     this.#user = null;
   }
 }
+
