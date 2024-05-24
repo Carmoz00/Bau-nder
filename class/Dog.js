@@ -26,7 +26,7 @@ class ControllerDogs {
     });
   }
 
-  updateSesso(old_nome, new_nome) {
+  updateNome(old_nome, new_nome) {
     this.#dogs = this.dog.map(function (dog) {
       if (dog.nome === old_nome) return { ...dog, nome: new_nome };
       return { ...dog };
