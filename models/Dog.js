@@ -1,5 +1,5 @@
 class ModelDog {
-  constructor(sesso, eta, nome, razza, pedigree, luogo, descrizione) {
+  constructor(sesso, eta, nome, razza, pedigree, luogo, descrizione, immagine) {
     this.id_dog = Math.random();
     this.sesso = sesso;
     this.nome = nome;

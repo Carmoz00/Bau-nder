@@ -1,13 +1,16 @@
 class App {
-  constructor() {
-    this.#users = new ControllerUsers();
-    this.#dogs = new ControllerDogs();
-    this.#userReviews = new ControllerDogUser();
-    this.#user = null;
-  }
+  #users = new ControllerUsers();
+  #dogs = new ControllerDogs();
+  #userReviews = new ControllerDogUser();
+  #user = null;
 
   signup(username, password, email) {
-    this.users.create(username, password, email);
+    const isValidUsername = this.users.isValidUsername(users.username);
+    if (isValidUsername === true) {
+      this.users.create(username, password, email);
+    } else {
+      console.log("nome in uso");
+    }
   }
 
   login(username, password) {

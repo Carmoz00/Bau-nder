@@ -37,4 +37,12 @@ class ControllerUsers {
     });
     return userFound;
   }
+
+  IsValidUsername(username) {
+    const userFound = this.users.find(function (user) {
+      if (user.username === username) return true;
+      return false;
+    });
+    return !userFound;
+  }
 }

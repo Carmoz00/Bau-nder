@@ -1,6 +1,8 @@
+const ModelDogs = require("..class/Dog.js");
+
 class ControllerDogs {
   #dogs = [];
-  create(sesso, eta, nome, razza, pedigree, luogo, descrizione) {}
+  create(sesso, eta, nome, razza, pedigree, luogo, descrizione, immagine) {}
   read(id) {
     const dog = this.#dogs.find((d) => d.id_dog === id);
     if (dog) {
@@ -9,7 +11,6 @@ class ControllerDogs {
       return dog;
     }
   }
-  update(sesso, eta, nome, razza, pedigree, luogo, descrizione) {}
 
   updateSesso(old_sesso, new_sesso) {
     this.#dogs = this.dog.map(function (dog) {
@@ -62,5 +63,13 @@ class ControllerDogs {
     });
   }
 
-  delete(id) {}
+  delete(id) {
+    const initialLength = this.dogs.length;
+    this.dogs = this.dogs.filter((d) => d.id_dog !== id);
+    if (this.dogs.length < initialLength) {
+      return `Dog with ID ${id} has been deleted.`;
+    } else {
+      return `Dog with ID ${id} not found.`;
+    }
+  }
 }
