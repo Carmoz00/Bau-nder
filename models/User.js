@@ -1,3 +1,5 @@
+const ModelDogs = require("../class/Dog.js");
+
 class ModelUser {
   constructor(a, b, c) {
     this.id_user = Math.random();
@@ -7,4 +9,4 @@ class ModelUser {
   }
 }
 
-module.exports = ModelUser;
+export { ModelUser };

@@ -9,3 +9,5 @@ class ModelDog {
     this.descrizione = descrizione;
   }
 }
+
+export { ModelDog };
