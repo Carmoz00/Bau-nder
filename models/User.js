@@ -1,9 +1,9 @@
 class ModelUser {
-  constructor(username, password, email) {
+  constructor(a, b, c) {
     this.id_user = Math.random();
-    this.username = username;
-    this.password = password;
-    this.email = email;
+    this.username = a;
+    this.password = b;
+    this.email = c;
   }
 }
 

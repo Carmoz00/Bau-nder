@@ -2,7 +2,7 @@ const ModelDogs = require("..class/Dog.js");
 
 class ControllerDogs {
   #dogs = [];
-  create(sesso, eta, nome, razza, pedigree, luogo, descrizione) {}
+  create(sesso, eta, nome, razza, pedigree, luogo, descrizione, immagine) {}
   read(id) {
     const dog = this.#dogs.find((d) => d.id_dog === id);
     if (dog) {
