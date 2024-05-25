@@ -2,7 +2,7 @@
 
 ## Schema E/R
 
-https://precursorapp.com/document/Untitled-17592211351614.svg
+[https://precursorapp.com/document/Untitled-17592211351614.svg](https://precursorapp.com/document/Schema-E-R-Bau-nder-17592211390832.svg)
 
 [![Precursor](https://precursorapp.com/document/Schema-E-R-Bau-nder-17592211390832.svg?auth-token=)](https://precursorapp.com/document/Schema-E-R-Bau-nder-17592211390832)
 
