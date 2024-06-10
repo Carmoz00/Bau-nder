@@ -23,3 +23,9 @@ Puoi ricevere match o inviarne se trovi un cane compatibile e organizzare incont
 6. Visionare un profilo cane al dettaglio;
 7. Possibilità di inviare Match/richiesta incontro;
 8. Visionare e gestire la lista dei Match ricevuti;
+
+### Da aggiungere (10/07/2024)
+
+1. funzione getDogs(vector profili cani) nel file app
+2. funzione filtri (per razza, sesso, pedigree, luogo) da applicare a getDogs
+3. Match (contentente id_animale e id_utente) 
