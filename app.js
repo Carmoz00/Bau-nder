@@ -18,11 +18,24 @@ class App {
   }
 
   login(username, password) {
-    this.#session = this.#users.get(username, password);
+    while (true) {
+      this.#session = this.#users.get(username, password);
+      if (
+        this.#session.username === username &&
+        this.#session.password === password
+      ) {
+        console.log("Login effettuato correttamente");
+        break;
+      } else {
+        console.log("Credenziali errate");
+      }
+    }
   }
 
   logout() {
     this.#session = null;
+
+    console.log("Logout effettuato correttamente");
   }
 }
 
