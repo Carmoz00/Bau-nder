@@ -83,6 +83,33 @@ class ControllerDogs {
       return `Dog with ID ${id} not found.`;
     }
   }
+
+  getdogs() {
+    return this.#dogs;
+  }
+  /* showDogsFilterPedigree() {
+    return this.#dogs.filter((d) => d.pedigree === true);
+  }
+
+  
+  showDogsFilterLuogo(luogo) {
+    return this.#dogs.filter((d) => d.luogo === luogo);
+  }
+
+  
+  showDogsFilterSesso(sesso) {
+    return this.#dogs.filter((d) => d.sesso === sesso);
+  }
+
+
+  showDogsFilterEta(eta) {
+    return this.#dogs.filter((d) => d.eta === eta);
+  }
+
+  showDogsFilterRazza(razza) {
+    return this.#dogs.filter((d) => d.razza === razza);
+  }
+  */
 }
 
 export { ControllerDogs };
