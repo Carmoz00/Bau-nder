@@ -37,6 +37,29 @@ class App {
 
     console.log("Logout effettuato correttamente");
   }
+
+  showdogs() {
+    this.#dogs.getdogs();
+  }
+
+  filterdogs() {
+    temp_dogs = [...this.#dogs];
+    if (pedigree == true) {
+      temp_dogs = temp_dogs.filter((dog) => dog.pedigree === pedigree);
+    }
+    if (luogo == true) {
+      temp_dogs = temp_dogs.filter((dog) => dog.luogo === luogo);
+    }
+    if (sesso == true) {
+      temp_dogs = temp_dogs.filter((dog) => dog.sesso === sesso);
+    }
+    if (razza == true) {
+      temp_dogs = temp_dogs.filter((dog) => dog.razza === razza);
+    }
+    if (eta == true) {
+      temp_dogs = temp_dogs.filter((dog) => dog.eta === eta);
+    }
+  }
 }
 
 /* constructor() {
