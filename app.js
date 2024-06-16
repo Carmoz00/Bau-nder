@@ -6,42 +6,75 @@ class App {
   #users = new ControllerUsers();
   #dogs = new ControllerDogs();
   #userReviews;
-  #session;
+  #session = null;
+
+  temp_dogs = [];
 
   signup(username, password, email) {
-    //const test = this.#users.isValidUsername(this.#users.username);
-    //if (test === true) {
+    if (this.#users.findByEmail(email)) {
+      console.log("Email già in uso");
+      return;
+    }
     this.#users.create(username, password, email);
-    /*} else {
-      console.log("nome in uso");
-    }*/
+    console.log("Registrazione completata con successo");
   }
 
-  login(username, password) {
-    while (true) {
-      this.#session = this.#users.get(username, password);
-      if (
-        this.#session.username === username &&
-        this.#session.password === password
-      ) {
-        console.log("Login effettuato correttamente");
-        break;
-      } else {
-        console.log("Credenziali errate");
-      }
+  login(email, password) {
+    const user = this.#users.authenticate(email, password);
+    if (user) {
+      this.#session = user;
+      console.log("Login effettuato correttamente");
+    } else {
+      console.log("Email o password errati");
     }
   }
 
   logout() {
     this.#session = null;
-
     console.log("Logout effettuato correttamente");
+  }
+
+  showdogs() {
+    this.#dogs.getdogs();
+  }
+
+  filterdogs(sesso, eta, razza, pedigree, luogo) {
+    this.temp_dogs = [...this.#dogs];
+    if (sesso != undefined) {
+      temp_dogs = temp_dogs.filter((dog) => dog.sesso === sesso);
+    }
+    if (eta != undefined) {
+      temp_dogs = temp_dogs.filter((dog) => dog.eta === eta);
+    }
+    if (razza != undefined) {
+      temp_dogs = temp_dogs.filter((dog) => dog.razza === razza);
+    }
+    if (pedigree != undefined) {
+      temp_dogs = temp_dogs.filter((dog) => dog.pedigree === true);
+    }
+    if (luogo != undefined) {
+      temp_dogs = temp_dogs.filter((dog) => dog.luogo === luogo);
+    }
   }
 }
 
-/* constructor() {
+/* 
+  match (id_user, id_dog) {
+      listaMatch.push({id_user, id_dog});
+
+      console.log("Match inviato");
+
+  }
+
+  dog1.match(id_user, id_dog);
+
+  
+  constructor() {
     this.#users = new ControllerUsers();
     this.#dogs = new ControllerDogs();
     this.#userReviews = new ControllerDogUser();
     this.#user = null;
-  }*/
+
+  }
+  
+  */
