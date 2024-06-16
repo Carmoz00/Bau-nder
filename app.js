@@ -8,12 +8,12 @@ class App {
   }
 
   showDogs() {
-    console.log(this.dogs.dogs);
+    console.log(this.dogs.getDogs());
   }
 
   filterDogs(sesso, eta, razza, pedigree, luogo) {
     const filters = { sesso, eta, razza, pedigree, luogo };
-    this.temp_dogs = this.dogs.dogs.filter((dog) => {
+    this.temp_dogs = this.dogs.getDogs().filter((dog) => {
       return Object.keys(filters).every((key) => {
         if (filters[key] !== undefined) {
           return dog[key] === filters[key];
@@ -22,6 +22,51 @@ class App {
       });
     });
     console.log(this.temp_dogs);
+  }
+
+  createDogForUser(
+    userId,
+    sesso,
+    eta,
+    nome,
+    razza,
+    pedigree,
+    luogo,
+    descrizione,
+    immagine
+  ) {
+    const dogId = this.dogs.create(
+      sesso,
+      eta,
+      nome,
+      razza,
+      pedigree,
+      luogo,
+      descrizione,
+      immagine,
+      userId
+    );
+    this.users.addDogToUser(userId, dogId);
+  }
+
+  getUserDogs(userId) {
+    return this.dogs.getDogsByUserId(userId);
+  }
+
+  getDogInfo(dogId) {
+    return this.dogs.getDogById(dogId);
+  }
+
+  getRequestsSent(userId) {
+    return this.users.getRequestsSent(userId);
+  }
+
+  getRequestsReceived(userId) {
+    return this.users.getRequestsReceived(userId);
+  }
+
+  getMatches(userId) {
+    return this.users.getMatches(userId);
   }
 
   matchRequest(user1Id, dog1Id, user2Id, dog2Id) {
