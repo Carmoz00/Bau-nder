@@ -35,26 +35,13 @@ class App {
   }
 
   showdogs() {
-    this.#dogs.getdogs();
+    console.log(this.#dogs.getdogs());
   }
 
   filterdogs(sesso, eta, razza, pedigree, luogo) {
-    this.temp_dogs = [...this.#dogs];
-    if (sesso != undefined) {
-      temp_dogs = temp_dogs.filter((dog) => dog.sesso === sesso);
-    }
-    if (eta != undefined) {
-      temp_dogs = temp_dogs.filter((dog) => dog.eta === eta);
-    }
-    if (razza != undefined) {
-      temp_dogs = temp_dogs.filter((dog) => dog.razza === razza);
-    }
-    if (pedigree != undefined) {
-      temp_dogs = temp_dogs.filter((dog) => dog.pedigree === true);
-    }
-    if (luogo != undefined) {
-      temp_dogs = temp_dogs.filter((dog) => dog.luogo === luogo);
-    }
+    const filters = { sesso, eta, razza, pedigree, luogo };
+    this.temp_dogs = this.#dogs.filterDogs(filters);
+    console.log(this.temp_dogs);
   }
 }
 

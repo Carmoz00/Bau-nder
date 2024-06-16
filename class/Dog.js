@@ -1,7 +1,7 @@
-const ModelDogs = require("../models/Dog.js");
 import { ModelDog } from "../models/Dog.js";
 class ControllerDogs {
   #dogs = [];
+
   create(sesso, eta, nome, razza, pedigree, luogo, descrizione, immagine) {
     const dog = new ModelDog(
       sesso,
@@ -15,14 +15,12 @@ class ControllerDogs {
     );
     this.#dogs.push(dog);
   }
+
   read(id) {
     const dog = this.#dogs.find((d) => d.id_dog === id);
-    if (dog) {
-      return dog;
-    } else {
-      return dog;
-    }
+    return dog || null;
   }
+
   updateSesso(old_sesso, new_sesso) {
     this.#dogs = this.#dogs.map((dog) => {
       if (dog.sesso === old_sesso) return { ...dog, sesso: new_sesso };
@@ -87,29 +85,17 @@ class ControllerDogs {
   getdogs() {
     return this.#dogs;
   }
-  /* showDogsFilterPedigree() {
-    return this.#dogs.filter((d) => d.pedigree === true);
-  }
 
-  
-  showDogsFilterLuogo(luogo) {
-    return this.#dogs.filter((d) => d.luogo === luogo);
+  filterDogs(filters) {
+    return this.#dogs.filter((dog) => {
+      return Object.keys(filters).every((key) => {
+        if (filters[key] !== undefined) {
+          return dog[key] === filters[key];
+        }
+        return true;
+      });
+    });
   }
-
-  
-  showDogsFilterSesso(sesso) {
-    return this.#dogs.filter((d) => d.sesso === sesso);
-  }
-
-
-  showDogsFilterEta(eta) {
-    return this.#dogs.filter((d) => d.eta === eta);
-  }
-
-  showDogsFilterRazza(razza) {
-    return this.#dogs.filter((d) => d.razza === razza);
-  }
-  */
 }
 
 export { ControllerDogs };
