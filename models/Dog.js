@@ -1,5 +1,15 @@
 class ModelDog {
-  constructor(sesso, eta, nome, razza, pedigree, luogo, descrizione, immagine) {
+  constructor(
+    sesso,
+    eta,
+    nome,
+    razza,
+    pedigree,
+    luogo,
+    descrizione,
+    immagine,
+    ownerId
+  ) {
     this.id_dog = Math.random();
     this.sesso = sesso;
     this.eta = eta;
@@ -9,6 +19,7 @@ class ModelDog {
     this.luogo = luogo;
     this.descrizione = descrizione;
     this.immagine = immagine;
+    this.ownerId = ownerId;
   }
 
   toPlainObject() {
@@ -22,6 +33,7 @@ class ModelDog {
       luogo: this.luogo,
       descrizione: this.descrizione,
       immagine: this.immagine,
+      ownerId: this.ownerId,
     };
   }
 
@@ -34,7 +46,8 @@ class ModelDog {
       obj.pedigree,
       obj.luogo,
       obj.descrizione,
-      obj.immagine
+      obj.immagine,
+      obj.ownerId
     );
     dog.id_dog = obj.id_dog;
     return dog;

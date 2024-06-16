@@ -5,6 +5,7 @@ class ModelUser {
     this.password = password;
     this.email = email;
     this.phone = phone;
+    this.dogIds = [];
     this.richiesteInviate = [];
     this.richiesteRicevute = [];
     this.listaMatch = [];
@@ -17,6 +18,7 @@ class ModelUser {
       password: this.password,
       email: this.email,
       phone: this.phone,
+      dogIds: this.dogIds,
       richiesteInviate: this.richiesteInviate,
       richiesteRicevute: this.richiesteRicevute,
       listaMatch: this.listaMatch,
@@ -31,6 +33,7 @@ class ModelUser {
       obj.phone
     );
     user.id_user = obj.id_user;
+    user.dogIds = obj.dogIds;
     user.richiesteInviate = obj.richiesteInviate;
     user.richiesteRicevute = obj.richiesteRicevute;
     user.listaMatch = obj.listaMatch;

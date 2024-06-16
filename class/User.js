@@ -21,6 +21,29 @@ class ControllerUsers {
   getUserById(id) {
     return this.users.find((user) => user.id_user === id);
   }
+
+  addDogToUser(userId, dogId) {
+    const user = this.getUserById(userId);
+    if (user) {
+      user.dogIds.push(dogId);
+      this.saveUsers();
+    }
+  }
+
+  getRequestsSent(userId) {
+    const user = this.getUserById(userId);
+    return user ? user.richiesteInviate : [];
+  }
+
+  getRequestsReceived(userId) {
+    const user = this.getUserById(userId);
+    return user ? user.richiesteRicevute : [];
+  }
+
+  getMatches(userId) {
+    const user = this.getUserById(userId);
+    return user ? user.listaMatch : [];
+  }
 }
 
 export { ControllerUsers };
