@@ -1,21 +1,31 @@
 # Bau-nder
 
-# Modello E/R
+## Schema E/R
 
-https://precursorapp.com/document/Untitled-17592211351614.svg
+[https://precursorapp.com/document/Untitled-17592211351614.svg](https://precursorapp.com/document/Schema-E-R-Bau-nder-17592211390832.svg)
 
-# Descrizione
+[![Precursor](https://precursorapp.com/document/Schema-E-R-Bau-nder-17592211390832.svg?auth-token=)](https://precursorapp.com/document/Schema-E-R-Bau-nder-17592211390832)
 
-La nostra app BAU-NDER è progettata per connettere i proprietari di cani, offrendo loro la possibilità di organizzare incontri tra i loro animali. L'app prevede una fase di registrazione e login per l'utente, seguita dalla creazione del profilo del proprio cane.
+## Descrizione
 
-La nostra app nella versione 1.0 permetterà all'utente di:
+BAU-NDER è la piattaforma progettata per connettere i proprietari di cani! Con Bau-nder, puoi creare un profilo dettagliato per il tuo cane e cercare altri profili anche tramite specifici filtri di ricerca come razza, pedigree, età ecc.
+Puoi ricevere match o inviarne se trovi un cane compatibile e organizzare incontri per i tuoi amici a quattro zampe.
 
-1. Creare un account utente con l'utilizzo di email e password
-2. modificare il proprio account
-3. eliminare il proprio account
-4. creare un profilo per il proprio cane inserendo nome,età,razza,se possiede o meno il pedigree,sesso e descrizione
-5. modificare il proprio profilo cane
-6. eliminare il proprio profilo cane
-7. cercare un cane da incontrare
-8. fare il login
-9. fare il logout
+## Features:
+
+### V 1.0: 
+
+1. Creare un account utente con l'utilizzo di email e password (sign in e sign up);
+2. Possibilità di modificare il proprio account o eliminarlo;
+3. Creare un profilo per il proprio cane, inserendo dati come: nome, immagine, descrizione, sesso, età, razza, pedigree, vaccini;
+4. Possibilità di modificare o eliminare il profilo del proprio cane;
+5. Scorrere nella lista dei profili della piattaforma, potendo filtrare la ricerca per: luogo, razza, pedigree ecc;
+6. Visionare un profilo cane al dettaglio;
+7. Possibilità di inviare Match/richiesta incontro;
+8. Visionare e gestire la lista dei Match ricevuti;
+
+### Da aggiungere (10/07/2024)
+
+1. funzione getDogs(vector profili cani) nel file app
+2. funzione filtri (per razza, sesso, pedigree, luogo) da applicare a getDogs
+3. Match (contentente id_animale e id_utente) 
