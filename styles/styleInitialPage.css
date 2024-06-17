@@ -11,6 +11,25 @@ body {
   left: 0;
 }
 
+.logo_login {
+  width: 40%;
+  position: absolute;
+  top: 0;
+  left: 30%;
+}
+
+.signup-section {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.login-section {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
 .container {
   width: 90vw; /* Occupare tutta la larghezza della viewport */
   height: 70vh; /* Occupare tutta l'altezza della viewport */
@@ -116,6 +135,10 @@ section {
   display: none;
 }
 
+section.active {
+  display: block;
+}
+
 form {
   display: flex;
   flex-direction: column;
@@ -126,7 +149,14 @@ form label {
 }
 
 form input,
+form textarea,
 form button {
   margin-top: 5px;
   padding: 10px;
+}
+
+#dogs-list div {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
 }
