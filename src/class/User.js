@@ -1,4 +1,5 @@
 import { ModelUser } from "../models/User.js";
+
 class ControllerUsers {
   constructor() {
     this.users = JSON.parse(localStorage.getItem("users")) || [];
@@ -14,12 +15,21 @@ class ControllerUsers {
     this.saveUsers();
   }
 
+  findByEmail(email) {
+    return this.users.find((user) => user.email === email);
+  }
+
   getUserByUsername(username) {
     return this.users.find((user) => user.username === username);
   }
 
   getUserById(id) {
     return this.users.find((user) => user.id_user === id);
+  }
+
+  authenticate(email, password) {
+    const user = this.findByEmail(email);
+    return user && user.password === password ? user : null;
   }
 
   addDogToUser(userId, dogId) {

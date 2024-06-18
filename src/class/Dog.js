@@ -1,4 +1,5 @@
 import { ModelDog } from "../models/Dog.js";
+
 class ControllerDogs {
   constructor() {
     this.dogs = JSON.parse(localStorage.getItem("dogs")) || [];
