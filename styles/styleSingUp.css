@@ -2,7 +2,7 @@
 
 body {
   font-family: Arial, sans-serif;
-  background-color: #ffffff;
+  background-color: #ffffff; /* Verde chiaro */
   margin: 0;
   display: flex;
   justify-content: center;
@@ -10,19 +10,29 @@ body {
   height: 100vh;
 }
 
-#login-section {
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh; /* Corretto da 10000% a 100vh */
+}
+
+.forms-container {
   background-color: #e6fff2; /* Verde chiaro */
   border: 1px solid #b2d8c6; /* Bordo verde più scuro */
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 10px 40px;
+  padding: 20px 40px;
   width: 300px;
   text-align: center;
+  margin-top: 200px; /* Aggiunto margine superiore per spostare il form più in basso */
 }
 
 h2 {
   color: #388e3c; /* Verde scuro */
   margin-bottom: 20px;
+  margin-top: 0%;
 }
 
 form {
@@ -37,7 +47,9 @@ label {
 }
 
 input[type="text"],
-input[type="password"] {
+input[type="password"],
+input[type="email"],
+input[type="tel"] {
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #b2d8c6; /* Bordo verde più scuro */
@@ -62,6 +74,7 @@ button:hover {
 .logo_login {
   width: 30%;
   position: absolute;
-  top: 0;
+  top: 10px; /* Posiziona il logo un po' più in basso */
   left: 35%;
+  height: 22%;
 }

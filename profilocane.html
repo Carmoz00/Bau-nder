@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Baunder- profilo cane</title>
+    <link rel="stylesheet" href="./styles/styleprofilocane.css" />
+  </head>
+
+  <body>
+    <header>
+      <img
+        class="logo"
+        src="./images/logos/Logo_nome_invertito.png"
+        alt="Logo"
+      />
+      <nav>
+        <ul>
+          <li><a href="#" id="profile-link">Profile</a></li>
+          <li><a href="#" id="logout-link">Logout</a></li>
+        </ul>
+      </nav>
+    </header>
+    <div class="container">
+      <h1>Aggiungi Profilo</h1>
+      <form
+        action="submit_profile.php"
+        method="post"
+        enctype="multipart/form-data"
+      >
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required />
+
+        <label for="sesso">Sesso:</label>
+        <select id="sesso" name="sesso" required>
+          <option value="Maschio">Maschio</option>
+          <option value="Femmina">Femmina</option>
+        </select>
+
+        <label for="eta">Età:</label>
+        <input type="number" id="eta" name="eta" min="0" required />
+
+        <label for="razza">Razza:</label>
+        <select id="razza" name="razza" required>
+          <option value="">Seleziona una razza</option>
+          <option value="Akita">Akita</option>
+          <option value="Alano">Alano</option>
+          <option value="Alaskan Malamute">Alaskan Malamute</option>
+          <option value="Barboncino">Barboncino</option>
+          <option value="Bassotto">Bassotto</option>
+          <option value="Beagle">Beagle</option>
+          <option value="Bichon Frisé">Bichon Frisé</option>
+          <option value="Border Collie">Border Collie</option>
+          <option value="Boxer">Boxer</option>
+          <option value="Bulldog Francese">Bulldog Francese</option>
+          <option value="Bulldog Inglese">Bulldog Inglese</option>
+          <option value="Cane Corso">Cane Corso</option>
+          <option value="Cavalier King Charles Spaniel">
+            Cavalier King Charles Spaniel
+          </option>
+          <option value="Chihuahua">Chihuahua</option>
+          <option value="Cocker Spaniel">Cocker Spaniel</option>
+          <option value="Dalmata">Dalmata</option>
+          <option value="Dobermann">Dobermann</option>
+          <option value="Dogo Argentino">Dogo Argentino</option>
+          <option value="Golden Retriever">Golden Retriever</option>
+          <option value="Jack Russell Terrier">Jack Russell Terrier</option>
+          <option value="Labrador Retriever">Labrador Retriever</option>
+          <option value="Maltese">Maltese</option>
+          <option value="Maremmano Abruzzese">Maremmano Abruzzese</option>
+          <option value="Pastore Tedesco">Pastore Tedesco</option>
+          <option value="Pinscher">Pinscher</option>
+          <option value="Pitbull">Pitbull</option>
+          <option value="Pomerania">Pomerania</option>
+          <option value="Rottweiler">Rottweiler</option>
+          <option value="San Bernardo">San Bernardo</option>
+          <option value="Schnauzer">Schnauzer</option>
+          <option value="Setter">Setter</option>
+          <option value="Shih Tzu">Shih Tzu</option>
+          <option value="Siberian Husky">Siberian Husky</option>
+          <option value="Spitz Tedesco">Spitz Tedesco</option>
+          <option value="Staffordshire Bull Terrier">
+            Staffordshire Bull Terrier
+          </option>
+          <option value="Terranova">Terranova</option>
+          <option value="Volpino Italiano">Volpino Italiano</option>
+        </select>
+
+        <label for="pedigree">Pedigree:</label>
+        <select id="pedigree" name="pedigree" required>
+          <option value="Sì">Sì</option>
+          <option value="No">No</option>
+        </select>
+
+        <label for="luogo">Luogo:</label>
+        <select id="luogo" name="luogo" required>
+          <option value="">Seleziona città</option>
+          <option value="Agrigento">Agrigento</option>
+          <option value="Alessandria">Alessandria</option>
+          <option value="Ancona">Ancona</option>
+          <option value="Aosta">Aosta</option>
+          <option value="Arezzo">Arezzo</option>
+          <option value="Ascoli Piceno">Ascoli Piceno</option>
+          <option value="Asti">Asti</option>
+          <option value="Avellino">Avellino</option>
+          <option value="Bari">Bari</option>
+          <option value="Barletta">Barletta</option>
+          <option value="Belluno">Belluno</option>
+          <option value="Benevento">Benevento</option>
+          <option value="Bergamo">Bergamo</option>
+          <option value="Biella">Biella</option>
+          <option value="Bologna">Bologna</option>
+          <option value="Bolzano">Bolzano</option>
+          <option value="Brescia">Brescia</option>
+          <option value="Brindisi">Brindisi</option>
+          <option value="Cagliari">Cagliari</option>
+          <option value="Caltanissetta">Caltanissetta</option>
+          <option value="Campobasso">Campobasso</option>
+          <option value="Caserta">Caserta</option>
+          <option value="Catania">Catania</option>
+          <option value="Catanzaro">Catanzaro</option>
+          <option value="Chieti">Chieti</option>
+          <option value="Como">Como</option>
+          <option value="Cosenza">Cosenza</option>
+          <option value="Cremona">Cremona</option>
+          <option value="Crotone">Crotone</option>
+          <option value="Cuneo">Cuneo</option>
+          <option value="Enna">Enna</option>
+          <option value="Fermo">Fermo</option>
+          <option value="Ferrara">Ferrara</option>
+          <option value="Firenze">Firenze</option>
+          <option value="Foggia">Foggia</option>
+          <option value="Forlì">Forlì</option>
+          <option value="Frosinone">Frosinone</option>
+          <option value="Genova">Genova</option>
+          <option value="Gorizia">Gorizia</option>
+          <option value="Grosseto">Grosseto</option>
+          <option value="Imperia">Imperia</option>
+          <option value="Isernia">Isernia</option>
+          <option value="L'Aquila">L'Aquila</option>
+          <option value="La Spezia">La Spezia</option>
+          <option value="Latina">Latina</option>
+          <option value="Lecce">Lecce</option>
+          <option value="Lecco">Lecco</option>
+          <option value="Livorno">Livorno</option>
+          <option value="Lodi">Lodi</option>
+          <option value="Lucca">Lucca</option>
+          <option value="Macerata">Macerata</option>
+          <option value="Mantova">Mantova</option>
+          <option value="Massa">Massa</option>
+          <option value="Matera">Matera</option>
+          <option value="Messina">Messina</option>
+          <option value="Milano">Milano</option>
+          <option value="Modena">Modena</option>
+          <option value="Monza">Monza</option>
+          <option value="Napoli">Napoli</option>
+          <option value="Novara">Novara</option>
+          <option value="Nuoro">Nuoro</option>
+          <option value="Oristano">Oristano</option>
+          <option value="Padova">Padova</option>
+          <option value="Palermo">Palermo</option>
+          <option value="Parma">Parma</option>
+          <option value="Pavia">Pavia</option>
+          <option value="Perugia">Perugia</option>
+          <option value="Pesaro">Pesaro</option>
+          <option value="Pescara">Pescara</option>
+          <option value="Piacenza">Piacenza</option>
+          <option value="Pisa">Pisa</option>
+          <option value="Pistoia">Pistoia</option>
+          <option value="Pordenone">Pordenone</option>
+          <option value="Potenza">Potenza</option>
+          <option value="Prato">Prato</option>
+          <option value="Ragusa">Ragusa</option>
+          <option value="Ravenna">Ravenna</option>
+          <option value="Reggio Calabria">Reggio Calabria</option>
+          <option value="Reggio Emilia">Reggio Emilia</option>
+          <option value="Rieti">Rieti</option>
+          <option value="Rimini">Rimini</option>
+          <option value="Roma">Roma</option>
+          <option value="Rovigo">Rovigo</option>
+          <option value="Salerno">Salerno</option>
+          <option value="Sanluri">Sanluri</option>
+          <option value="Sassari">Sassari</option>
+          <option value="Savona">Savona</option>
+          <option value="Siena">Siena</option>
+          <option value="Siracusa">Siracusa</option>
+          <option value="Sondrio">Sondrio</option>
+          <option value="Taranto">Taranto</option>
+          <option value="Teramo">Teramo</option>
+          <option value="Terni">Terni</option>
+          <option value="Torino">Torino</option>
+          <option value="Trapani">Trapani</option>
+          <option value="Trento">Trento</option>
+          <option value="Treviso">Treviso</option>
+          <option value="Trieste">Trieste</option>
+          <option value="Udine">Udine</option>
+          <option value="Varese">Varese</option>
+          <option value="Venezia">Venezia</option>
+          <option value="Verbano-Cusio-Ossola">Verbano-Cusio-Ossola</option>
+          <option value="Vercelli">Vercelli</option>
+          <option value="Verona">Verona</option>
+          <option value="Vibo Valentia">Vibo Valentia</option>
+          <option value="Vicenza">Vicenza</option>
+          <option value="Viterbo">Viterbo</option>
+        </select>
+
+        <label for="descrizione">Descrizione:</label>
+        <textarea
+          id="descrizione"
+          name="descrizione"
+          rows="4"
+          required
+        ></textarea>
+
+        <label for="immagine">Immagine:</label>
+        <input
+          type="file"
+          id="immagine"
+          name="immagine"
+          accept="image/*"
+          required
+        />
+
+        <button type="submit">Aggiungi Profilo</button>
+      </form>
+    </div>
+  </body>
+</html>
