@@ -1,4 +1,4 @@
-import { ModelUser } from "../models/User.js";
+import ModelUser from "../models/User.js";
 
 class ControllerUsers {
   constructor() {
@@ -56,4 +56,4 @@ class ControllerUsers {
   }
 }
 
-export { ControllerUsers };
+export default ControllerUsers;

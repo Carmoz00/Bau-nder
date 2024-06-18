@@ -54,4 +54,4 @@ class ModelDog {
   }
 }
 
-export { ModelDog };
+export default ModelDog;

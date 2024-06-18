@@ -1,4 +1,4 @@
-import { ModelDog } from "../models/Dog.js";
+import ModelDog from "../models/Dog.js";
 
 class ControllerDogs {
   constructor() {
@@ -70,4 +70,4 @@ class ControllerDogs {
   }
 }
 
-export { ControllerDogs };
+export default ControllerDogs;

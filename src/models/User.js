@@ -41,4 +41,4 @@ class ModelUser {
   }
 }
 
-export { ModelUser };
+export default ModelUser;

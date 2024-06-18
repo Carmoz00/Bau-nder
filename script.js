@@ -1,4 +1,4 @@
-import { App } from "./src/app.js";
+import App from "./src/app.js";
 
 const app = new App();
 
@@ -24,6 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Login
   const loginForm = document.getElementById("login-form");
   loginForm.addEventListener("submit", (event) => {
+    alert("ciao");
     event.preventDefault();
     const formData = new FormData(loginForm);
     const email = formData.get("email");
