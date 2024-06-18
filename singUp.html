@@ -3,15 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Baunder - Login/Signup</title>
-    <link rel="stylesheet" href="./styles/styleLogin.css" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/styleSingUp.css" />
   </head>
   <body>
-    <img class="logo_login" src="./images/logos/Logo_nome.png" alt="Logo" />
     <div class="container">
         <div class="forms-container">
             <div id="signup-section">
                 <h2>Sign Up</h2>
+                <img class="logo_login" src="./images/logos/Logo_nome.png" alt="Logo" />
                 <form id="signup-form">
                 <label for="signup-username">Username:</label></br>
                 <input type="text" id="signup-username" required />
@@ -22,22 +22,9 @@
                 <label for="signup-phone">Phone:</label>
                 <input type="tel" id="signup-phone" required />
                 <button type="submit">Sign Up</button>
+                <p class="signup-link"> hai già un account? <a href="./login.html">Log In</a></p>
             </form>
             </section>
         </div>
-      <div>
-        <div id="login-section">
-            <h2>Login</h2>
-            <form id="login-form">
-            <label for="login-username">Username:</label>
-            <input type="text" id="login-username" required />
-            <label for="login-password">Password:</label>
-            <input type="password" id="login-password" required />
-            <button type="submit">Login</button>
-          </form>
-        </section>
-      </div>
-    </div>
-    <script src="script.js" type="module"></script>
   </body>
 </html>
