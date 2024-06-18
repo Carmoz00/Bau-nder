@@ -6,99 +6,91 @@ document.addEventListener("DOMContentLoaded", () => {
   const signupSection = document.getElementById("signup-section");
   const loginSection = document.getElementById("login-section");
   const addDogSection = document.getElementById("add-dog-section");
-  const dogsListSection = document.getElementById("dogs-list-section");
-  const profileLink = document.getElementById("profile-link");
-  const logoutLink = document.getElementById("logout-link");
+  const dogsSection = document.getElementById("dogs-section");
 
-  const signupLink = document.getElementById("signup-link");
-  const loginLink = document.getElementById("login-link");
-
+  // Registrazione
   const signupForm = document.getElementById("signup-form");
-  const loginForm = document.getElementById("login-form");
-  const addDogForm = document.getElementById("add-dog-form");
-
-  if (signupSection && loginSection) {
-    signupSection.classList.add("active");
-    signupLink.addEventListener("click", () => {
-      signupSection.classList.add("active");
-      loginSection.classList.remove("active");
-    });
-
-    loginLink.addEventListener("click", () => {
-      signupSection.classList.remove("active");
-      loginSection.classList.add("active");
-    });
-
-    signupForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-      const username = document.getElementById("signup-username").value;
-      const password = document.getElementById("signup-password").value;
-      const email = document.getElementById("signup-email").value;
-      const phone = document.getElementById("signup-phone").value;
-      app.users.createUser(username, password, email, phone);
-      alert("Sign up successful!");
-      signupForm.reset();
-    });
-
-    loginForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-      const username = document.getElementById("login-username").value;
-      const password = document.getElementById("login-password").value;
-      if (app.login(username, password)) {
-        alert("Login successful!");
-        loginForm.reset();
-        window.location.href = "home.html";
-      } else {
-        alert("Invalid credentials!");
-      }
-    });
-  }
-
-  if (addDogSection && dogsListSection) {
-    addDogSection.classList.add("active");
-    dogsListSection.classList.add("active");
-
-    addDogForm.addEventListener("submit", (event) => {
-      event.preventDefault();
-      const name = document.getElementById("dog-name").value;
-      const breed = document.getElementById("dog-breed").value;
-      const age = document.getElementById("dog-age").value;
-      const gender = document.getElementById("dog-gender").value;
-      const pedigree = document.getElementById("dog-pedigree").checked;
-      const location = document.getElementById("dog-location").value;
-      const description = document.getElementById("dog-description").value;
-      app.dogs.addDog(
-        name,
-        breed,
-        age,
-        gender,
-        pedigree,
-        location,
-        description
-      );
-      displayDogs();
-      addDogForm.reset();
-    });
-
-    function displayDogs() {
-      const dogs = app.dogs.getDogs();
-      dogsListSection.innerHTML = "";
-      dogs.forEach((dog) => {
-        const dogDiv = document.createElement("div");
-        dogDiv.textContent = `${dog.nome} - ${dog.razza} (${dog.eta} anni)`;
-        dogsListSection.appendChild(dogDiv);
-      });
-    }
-
-    displayDogs();
-  }
-
-  profileLink.addEventListener("click", () => {
-    // Implement profile view logic
+  signupForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const formData = new FormData(signupForm);
+    const username = formData.get("username");
+    const password = formData.get("password");
+    const email = formData.get("email");
+    const phone = formData.get("phone");
+    const message = app.signup(username, password, email, phone);
+    alert(message);
   });
 
-  logoutLink.addEventListener("click", () => {
+  // Login
+  const loginForm = document.getElementById("login-form");
+  loginForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const formData = new FormData(loginForm);
+    const email = formData.get("email");
+    const password = formData.get("password");
+    const message = app.login(email, password);
+    alert(message);
+    if (app.session) {
+      signupSection.style.display = "none";
+      loginSection.style.display = "none";
+      addDogSection.style.display = "block";
+      dogsSection.style.display = "block";
+    }
+  });
+
+  // Logout
+  const logoutButton = document.getElementById("logout-button");
+  logoutButton.addEventListener("click", () => {
     app.logout();
-    window.location.href = "Baunder-initialPage.html";
+    signupSection.style.display = "block";
+    loginSection.style.display = "block";
+    addDogSection.style.display = "none";
+    dogsSection.style.display = "none";
+  });
+
+  // Aggiunta Cane
+  const addDogForm = document.getElementById("add-dog-form");
+  addDogForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const formData = new FormData(addDogForm);
+    const sesso = formData.get("sesso");
+    const eta = formData.get("eta");
+    const nome = formData.get("nome");
+    const razza = formData.get("razza");
+    const pedigree = formData.get("pedigree");
+    const luogo = formData.get("luogo");
+    const descrizione = formData.get("descrizione");
+    const immagine = formData.get("immagine");
+    app.createDogForUser(
+      app.session.id_user,
+      sesso,
+      eta,
+      nome,
+      razza,
+      pedigree,
+      luogo,
+      descrizione,
+      immagine
+    );
+    alert("Cane aggiunto con successo");
+  });
+
+  // Filtrare cani
+  const filterDogsForm = document.getElementById("filter-dogs-form");
+  filterDogsForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const formData = new FormData(filterDogsForm);
+    const sesso = formData.get("sesso");
+    const eta = formData.get("eta");
+    const razza = formData.get("razza");
+    const pedigree = formData.get("pedigree");
+    const luogo = formData.get("luogo");
+    app.filterDogs(sesso, eta, razza, pedigree, luogo);
+  });
+
+  // Visualizzare tutti i cani
+  const showDogsButton = document.getElementById("show-dogs-button");
+  showDogsButton.addEventListener("click", () => {
+    app.showDogs();
   });
 });

@@ -1,10 +1,55 @@
 import ControllerUsers from "./class/User.js";
-import ControllerDogs from "./class/Dogs.js";
+import ControllerDogs from "./class/Dog.js";
 
 class App {
   constructor() {
     this.users = new ControllerUsers();
     this.dogs = new ControllerDogs();
+    this.session = null;
+  }
+
+  signup(username, password, email, phone) {
+    if (this.users.findByEmail(email)) {
+      console.log("Email già in uso");
+      return "Email già in uso";
+    }
+    if (!this.validateEmail(email)) {
+      console.log("Email non valida");
+      return "Email non valida";
+    }
+    if (username === password) {
+      console.log("Username e password non possono essere uguali");
+      return "Username e password non possono essere uguali";
+    }
+    if (password.length < 8) {
+      console.log("Password troppo corta");
+      return "Password troppo corta";
+    }
+    this.users.createUser(username, password, email, phone);
+    console.log("Registrazione completata con successo");
+    return "Registrazione completata con successo";
+  }
+
+  login(email, password) {
+    const user = this.users.authenticate(email, password);
+    if (user) {
+      this.session = user;
+      console.log("Login effettuato correttamente");
+      return "Login effettuato correttamente";
+    } else {
+      console.log("Email o password errati");
+      return "Email o password errati";
+    }
+  }
+
+  logout() {
+    this.session = null;
+    console.log("Logout effettuato correttamente");
+  }
+
+  validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
   }
 
   showDogs() {
@@ -120,6 +165,8 @@ class App {
     }
   }
 }
+
+export { App };
 
 /* COMANDI BROWSER
 
