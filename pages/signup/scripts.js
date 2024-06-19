@@ -1,17 +1,25 @@
+import { app } from "../../app.js";
+
 const isLogged = !!localStorage.getItem("user");
 
-if (isLogged) window.location.href = "./pages/home";
-else {
-  // Registrazione
-  const signupForm = document.getElementById("signup-form");
-  signupForm.addEventListener("submit", (event) => {
+if (isLogged) {
+  window.location.href = "../homePage/index.html";
+} else {
+  const signupButton = document.getElementById("signup-button");
+  const usernameInput = document.getElementById("signup-username");
+  const passwordInput = document.getElementById("signup-password");
+  const emailInput = document.getElementById("signup-email");
+  const phoneInput = document.getElementById("signup-phone");
+
+  signupButton.addEventListener("click", (event) => {
     event.preventDefault();
-    const formData = new FormData(signupForm);
-    const username = formData.get("username");
-    const password = formData.get("password");
-    const email = formData.get("email");
-    const phone = formData.get("phone");
+    const username = usernameInput.value;
+    const password = passwordInput.value;
+    const email = emailInput.value;
+    const phone = phoneInput.value;
+
     const message = app.signup(username, password, email, phone);
     alert(message);
+    window.location.href = "../login/index.html";
   });
 }

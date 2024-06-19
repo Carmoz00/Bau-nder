@@ -45,6 +45,7 @@ class App {
   logout() {
     this.session = null;
     console.log("Logout effettuato correttamente");
+    return "Logout effettuato correttamente";
   }
 
   validateEmail(email) {
