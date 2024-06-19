@@ -1,5 +1,5 @@
-import ControllerUsers from "./class/User.js";
-import ControllerDogs from "./class/Dog.js";
+import ControllerUsers from "./controllers/User.js";
+import ControllerDogs from "./controllers/Dog.js";
 
 class App {
   constructor() {
@@ -166,7 +166,9 @@ class App {
   }
 }
 
-export default App;
+const app = new App();
+
+export { app };
 
 /* COMANDI BROWSER
 
