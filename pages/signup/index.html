@@ -3,29 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>singup</title>
+    <title>Sign Up</title>
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
     <div class="container">
-        <div class="forms-container">
-            <div id="signup-section">
-                <h2>Sign Up</h2>
-                <img class="logo_login" src="../../images/Logo_nome.png" alt="Logo" />
-                <form id="signup-form">
-                <label for="signup-username">Username:</label></br>
-                <input type="text" id="signup-username" required />
-                <label for="signup-password">Password:</label>
-                <input type="password" id="signup-password" required />
-                <label for="signup-email">Email:</label>
-                <input type="email" id="signup-email" required />
-                <label for="signup-phone">Phone:</label>
-                <input type="tel" id="signup-phone" required />
-                <button type="submit">Sign Up</button>
-                <p class="signup-link"> hai già un account? <a href="../login/index.html">Log In</a></p>
-            </form>
-            </section>
+      <div class="forms-container">
+        <div id="signup-section">
+          <h2>Sign Up</h2>
+          <img class="logo_login" src="../../images/Logo_nome.png" alt="Logo" />
+          <label for="signup-username">Username:</label>
+          <input type="text" id="signup-username" required />
+          <br />
+          <label for="signup-password">Password:</label>
+          <input type="password" id="signup-password" required />
+          <br />
+          <label for="signup-email">Email:</label>
+          <input type="email" id="signup-email" required />
+          <br />
+          <label for="signup-phone">Phone:</label>
+          <input type="tel" id="signup-phone" required />
+          <br />
+          <button id="signup-button">Sign Up</button>
+          <p class="signup-link">
+            hai già un account? <a href="../login/index.html">Log In</a>
+          </p>
         </div>
+      </div>
+    </div>
     <script src="./scripts.js" type="module"></script>
   </body>
 </html>

@@ -4,13 +4,18 @@ const isLogged = !!localStorage.getItem("user");
 
 if (!isLogged) window.location.href = "../login";
 else {
-  const logoutButton = document.getElementById("logout-button");
+  const logoutButton = document.getElementById("button-logout");
   const addDogForm = document.getElementById("add-dog-form");
   const filterDogsForm = document.getElementById("filter-dogs-form");
   const showDogsButton = document.getElementById("show-dogs-button");
 
   logoutButton.addEventListener("click", () => {
-    app.logout();
+    //app.logout();
+
+    const message = app.logout();
+
+    alert(message);
+    localStorage.removeItem("user");
     window.location.href = "../../";
   });
 
