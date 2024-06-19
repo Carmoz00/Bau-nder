@@ -1,0 +1,71 @@
+body {
+  background-color: #4caf50;
+}
+
+div#container {
+  height: 500px;
+  width: 1000px;
+  display: table;
+  position: absolute;
+  margin-left: 13%;
+  margin-top: 5%;
+}
+
+div#content {
+  background: #ffffff;
+  display: table-cell;
+  vertical-align: middle;
+  border-radius: 20px;
+  box-shadow: 10px 10px 30px #131212;
+}
+
+.logo {
+  width: 200px;
+  position: absolute;
+  top: 0;
+}
+
+.titolo {
+  font-family: "Calisto MT", "Bookman Old Style", Bookman, "Goudy Old Style",
+    Garamond, "Hoefler Text", "Bitstream Charter", Georgia, serif;
+  font-size: 50px;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 700;
+  line-height: 26.4px;
+  margin: none;
+}
+
+.fotocane {
+  object-fit: fill;
+  height: 250px;
+  margin-left: 35%;
+}
+
+.immagine {
+  margin-bottom: none;
+  margin-top: 20px;
+}
+
+.titolodiv {
+  margin-top: 10px;
+}
+
+.btn {
+  background-color: #4caf50; /* Blue background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 12px 16px; /* Some padding */
+  font-size: 16px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+}
+
+/* Darker background on mouse-over */
+.btn:hover {
+  background-color: rgb(39, 247, 74);
+}
+
+.bottonidiv {
+  margin-left: 100px;
+  margin-top: 20px;
+}
