@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Dog Profiles</title>
+    <link rel="icon" href="../../images/Logo.png" type="image/png" />
+    <title>Baunder - Home Page</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,20 +17,24 @@
     <header class="header">
       <div class="div-header">
         <div class="div-logo">
-          <img
-            class="logo"
-            src="../../images/Logo_nome_invertito.png"
-            alt="logo bau-nder"
-          />
+          <button id="logo">
+            <img
+              class="logo"
+              src="../../images/Logo_nome_invertito.png"
+              alt="logo bau-nder"
+            />
+          </button>
         </div>
-        <button id="button-logout">Log Out</button>
-        <!-- <a href="../../index.html" id="logout-link">Log Out</a> -->
+        <button id="button-logout" class="button-logout">Log Out</button>
         <div class="current-user-picture-container">
-          <img
-            class="current-user-picture"
-            src="../../images/icona-profilo.jpg"
-            alt="icona profilo"
-          />
+          <button id="button-profiloUser" class="button-profiloUser">
+            <p class="current-user-name">Il tuo profilo</p>
+            <img
+              class="current-user-picture"
+              src="../../images/icona-profilo.jpg"
+              alt="icona profilo"
+            />
+          </button>
         </div>
       </div>
     </header>

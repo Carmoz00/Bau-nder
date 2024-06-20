@@ -4,10 +4,16 @@ const isLogged = !!localStorage.getItem("user");
 
 if (!isLogged) window.location.href = "../login";
 else {
+  const homePageButton = document.getElementById("logo");
   const logoutButton = document.getElementById("button-logout");
+  const profiloUserButton = document.getElementById("button-profiloUser");
   const addDogForm = document.getElementById("add-dog-form");
   const filterDogsForm = document.getElementById("filter-dogs-form");
   const showDogsButton = document.getElementById("show-dogs-button");
+
+  homePageButton.addEventListener("click", () => {
+    window.location.href = "../homePage/index.html";
+  });
 
   logoutButton.addEventListener("click", () => {
     //app.logout();
@@ -17,6 +23,10 @@ else {
     alert(message);
     localStorage.removeItem("user");
     window.location.href = "../../";
+  });
+
+  profiloUserButton.addEventListener("click", () => {
+    window.location.href = "../profiloUser/index.html";
   });
 
   addDogForm.addEventListener("submit", (event) => {
