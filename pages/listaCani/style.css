@@ -7,6 +7,8 @@ body {
 .logo {
   height: 5vw;
   width: auto;
+  position: relative;
+  left: 1vw;
 }
 
 #logo {
@@ -19,6 +21,43 @@ body {
   position: absolute;
   top: 0;
   left: 30%;
+}
+
+.div-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button-aggiungiCane {
+  background-color: white;
+  color: #4caf50;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 500px;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 12vw;
+  font-weight: bold;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.current-user-picture-container {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.current-user-picture {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 0px;
 }
 
 .signup-section {
@@ -112,7 +151,6 @@ header {
   background-color: #4caf50;
   color: white;
   padding: 10px 0;
-  text-align: center;
 }
 
 nav ul {
