@@ -17,7 +17,8 @@ if (isLogged) {
 
     alert(message);
     if (app.session) {
-      localStorage.setItem("user", email);
+      const user = { id_user: app.session.userId, email: email };
+      localStorage.setItem("user", JSON.stringify(user));
 
       window.location.href = "../homePage/index.html";
     }

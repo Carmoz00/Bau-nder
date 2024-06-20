@@ -10,10 +10,17 @@ if (!isLogged) {
     window.location.href = "../homePage/index.html";
   });
 
+  const aggiungiCaneButton = document.getElementById("button-aggiungiCane");
+  aggiungiCaneButton.addEventListener("click", () => {
+    window.location.href = "../aggiungiCane/index.html";
+  });
+
   const user = JSON.parse(localStorage.getItem("user"));
   const userId = user.id_user;
 
-  const dogsListContainer = document.getElementById("dogs-list");
+  const dogsListContainer = document.createElement("div");
+  dogsListContainer.id = "dogs-list";
+  document.body.appendChild(dogsListContainer);
 
   const displayUserDogs = () => {
     const userDogs = app.getUserDogs(userId);
