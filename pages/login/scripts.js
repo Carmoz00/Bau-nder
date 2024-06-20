@@ -13,7 +13,6 @@ if (isLogged) {
     event.preventDefault();
     const email = emailInput.value;
     const password = passwordInput.value;
-
     const message = app.login(email, password);
 
     alert(message);

@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Baunder - Profilo utente</title>
+    <link rel="icon" href="../../images/Logo.png" type="image/png" />
+    <title>Baunder - Il tuo Profilo</title>
     <link rel="stylesheet" href="./style.css" />
     <link
       rel="stylesheet"
@@ -13,7 +14,13 @@
 </html>
 <body>
   <div class="logodiv">
-    <img class="logo" src="../../images/Logo_nome_invertito.png" />
+    <button id="logo">
+      <img
+        class="logo"
+        src="../../images/Logo_nome_invertito.png"
+        alt="logo bau-nder"
+      />
+    </button>
   </div>
 
   <div id="container">
@@ -26,7 +33,9 @@
         <button class="btn">
           <i class="fa fa-user-circle"></i> Modifica profilo
         </button>
-        <button class="btn"><i class="fa fa-paw"></i> I miei cani</button>
+        <button id="listaCaniPersonaleButton" class="btn">
+          <i class="fa fa-paw"></i> I miei cani
+        </button>
         <button class="btn"><i class="fa fa-heart"></i> I miei match</button>
         <button class="btn">
           <i class="fa fa-address-book-o"></i> Richieste inviate
