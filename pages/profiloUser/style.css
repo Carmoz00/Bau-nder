@@ -71,6 +71,25 @@ div#content {
 }
 
 .bottonidiv {
-  margin-left: 100px;
-  margin-top: 20px;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+}
+
+.gestioneCani {
+  top: 50%;
+  left: 50%;
+  margin: 20px;
+}
+
+.gestioneMatch {
+  top: 50%;
+  left: 50%;
+  margin: 20px;
+}
+
+.gestioneProfilo {
+  top: 50%;
+  left: 50%;
+  margin: 20px;
 }
