@@ -4,6 +4,8 @@ if (!isLogged) window.location.href = "../login";
 else {
   const homePageButton = document.getElementById("logo");
 
+  const eliminaProfiloButton = document.getElementById("eliminaProfiloButton");
+
   const modificaProfiloButton = document.getElementById(
     "modificaProfiloButton"
   );
@@ -30,6 +32,10 @@ else {
 
   modificaProfiloButton.addEventListener("click", () => {
     window.location.href = "../modificaProfilo/index.html";
+  });
+
+  eliminaProfiloButton.addEventListener("click", () => {
+    window.location.href = "../eliminaProfilo/index.html";
   });
 
   listaMatchButton.addEventListener("click", () => {
