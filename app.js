@@ -103,6 +103,14 @@ class App {
     return this.dogs.getDogById(dogId);
   }
 
+  updateDog(dogId, updates) {
+    this.dogs.updateDog(dogId, updates);
+  }
+
+  deleteDogInfo(dogId) {
+    this.dogs.dogs = this.dogs.dogs.filter((dog) => dog.id_dog !== dogId);
+    this.dogs.saveDogs();
+  }
   getRequestsSent(userId) {
     return this.users.getRequestsSent(userId);
   }

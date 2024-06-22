@@ -48,7 +48,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const eliminaProfiloButton = document.getElementById("button-eliminaProfilo");
   eliminaProfiloButton.addEventListener("click", () => {
-    // Implementa la logica per eliminare il profilo del cane
-    alert("Funzionalità di eliminazione in sviluppo");
+    if (confirm("Sei sicuro di voler eliminare questo profilo?")) {
+      app.deleteDogInfo(selectedDogId);
+      alert("Profilo cane eliminato con successo.");
+      window.location.href = "../listaCani/index.html";
+    }
   });
 });
