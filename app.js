@@ -130,6 +130,11 @@ class App {
     }
   }
 
+  updateProfile(updatedUser) {
+    console.log("Profilo aggiornato:", updatedUser);
+    return "Profilo aggiornato con successo!";
+  }
+
   acceptMatch(user2Id, user1Id) {
     const user1 = this.users.getUserById(user1Id);
     const user2 = this.users.getUserById(user2Id);
