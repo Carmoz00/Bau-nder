@@ -37,7 +37,7 @@ class ControllerDogs {
   }
 
   getDogById(id) {
-    return this.dogs.find((dog) => dog.id_dog === id);
+    return this.dogs.find((dog) => dog.id_dog.toString() === id.toString());
   }
 
   getDogsByUserId(userId) {
