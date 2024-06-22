@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="../../images/Logo.png" type="image/png" />
-    <title>Baunder - I miei cani</title>
+    <title>Baunder - Profilo Cane</title>
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
@@ -19,22 +19,19 @@
             />
           </button>
         </div>
-        <div class="current-user-picture-container">
-          <button id="button-aggiungiCane" class="button-aggiungiCane">
-            <img
-              class="current-user-picture"
-              src="../../images/icona-aggiungi.png"
-              alt="icona profilo"
-            />
-            <p class="current-user-name">Aggiungi Cane</p>
+        <div class="button-container">
+          <button id="button-modificaProfilo" class="button">
+            Modifica Profilo Cane
+          </button>
+          <button id="button-eliminaProfilo" class="button button-rosso">
+            Elimina Profilo Cane
           </button>
         </div>
       </div>
     </header>
     <main>
-      <h2>I miei cani:</h2>
-      <div id="dogs-list"></div>
-      <!-- Contenitore per la lista dei cani -->
+      <h2>Profilo del Cane</h2>
+      <div id="dog-profile"></div>
     </main>
     <script src="./scripts.js" type="module"></script>
   </body>
