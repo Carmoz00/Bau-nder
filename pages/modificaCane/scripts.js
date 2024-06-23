@@ -36,31 +36,60 @@ if (!isLogged) {
 
     const formData = new FormData(form);
 
-    const updates = {
-      nome: formData.get("nome") || undefined,
-      sesso: formData.get("sesso") || undefined,
-      eta: formData.get("eta") || undefined,
-      razza: formData.get("razza") || undefined,
-      pedigree: formData.get("pedigree") === "Sì" ? true : undefined,
-      luogo: formData.get("luogo") || undefined,
-      descrizione: formData.get("descrizione") || undefined,
-    };
-
+    const nome = formData.get("nome") || undefined;
+    const sesso = formData.get("sesso") || undefined;
+    const eta = formData.get("eta") || undefined;
+    const razza = formData.get("razza") || undefined;
+    const pedigree = formData.get("pedigree") === "Sì" ? true : undefined;
+    const luogo = formData.get("luogo") || undefined;
+    const descrizione = formData.get("descrizione") || undefined;
     const immagine = formData.get("immagine");
+
+    // alert(dogId);
+    // alert(sesso);
+    // alert(eta);
+    // alert(nome);
+    // alert(razza);
+    // alert(pedigree);
+    // alert(luogo);
+    // alert(descrizione);
 
     if (immagine && immagine.size > 0) {
       const reader = new FileReader();
       reader.onload = function (e) {
-        updates.immagine = e.target.result;
-        app.updateDog(dogId, updates);
+        const immagineBase64 = e.target.result;
+        app.updateDog(
+          dogId,
+          sesso,
+          eta,
+          nome,
+          razza,
+          pedigree,
+          luogo,
+          descrizione,
+          immagineBase64
+        );
+
         alert("Profilo cane aggiornato con successo!");
         window.location.href = "../homePage/index.html";
       };
       reader.readAsDataURL(immagine);
     } else {
-      app.updateDog(dogId, updates);
+      app.updateDog(
+        dogId,
+        sesso,
+        eta,
+        nome,
+        razza,
+        pedigree,
+        luogo,
+        descrizione
+      );
+
       alert("Profilo cane aggiornato con successo!");
       window.location.href = "../homePage/index.html";
     }
+    app.saveDogs();
+    alert(app.getDogInfo(dogId).eta);
   });
 }
