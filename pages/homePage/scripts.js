@@ -1,71 +1,56 @@
 import { app } from "../../app.js";
 
-const isLogged = !!localStorage.getItem("user");
+document.addEventListener("DOMContentLoaded", () => {
+  const dogsListContainer = document.getElementById("dogs-list");
 
-if (!isLogged) window.location.href = "../login";
-else {
-  const homePageButton = document.getElementById("logo");
+  // Carica i cani dal localStorage
+  const dogs = JSON.parse(localStorage.getItem("dogs")) || [];
+
+  // Pulisci il contenitore dei cani
+  dogsListContainer.innerHTML = "";
+
+  if (dogs.length === 0) {
+    dogsListContainer.innerHTML = "<p>Non ci sono cani disponibili.</p>";
+  } else {
+    dogs.forEach((dog) => {
+      const dogProfileDiv = document.createElement("div");
+      dogProfileDiv.classList.add("div-dog-profile");
+
+      // Contenuto del profilo del cane
+      dogProfileDiv.innerHTML = `
+        <img class="dog-profile-pic" src="${dog.immagine}" alt="${dog.nome}" />
+        <div class="dog-name">${dog.nome}</div>
+        <div class="city">Città : ${dog.luogo}</div>
+      `;
+
+      // Aggiungi evento di clic per reindirizzare alla pagina del profilo cane personale
+      dogProfileDiv.addEventListener("click", () => {
+        localStorage.setItem("selectedDogId", dog.id_dog);
+        window.location.href = "../profiloCane/index.html";
+      });
+
+      dogsListContainer.appendChild(dogProfileDiv);
+    });
+  }
+
+  // Logout
   const logoutButton = document.getElementById("button-logout");
-  const profiloUserButton = document.getElementById("button-profiloUser");
-  const addDogForm = document.getElementById("add-dog-form");
-  const filterDogsForm = document.getElementById("filter-dogs-form");
-  const showDogsButton = document.getElementById("show-dogs-button");
-
-  homePageButton.addEventListener("click", () => {
-    window.location.href = "../homePage/index.html";
-  });
-
   logoutButton.addEventListener("click", () => {
-    //app.logout();
-
     const message = app.logout();
-
     alert(message);
     localStorage.removeItem("user");
     window.location.href = "../../";
   });
 
+  // Navigazione al profilo utente
+  const profiloUserButton = document.getElementById("button-profiloUser");
   profiloUserButton.addEventListener("click", () => {
     window.location.href = "../profiloUser/index.html";
   });
 
-  addDogForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const formData = new FormData(addDogForm);
-    const sesso = formData.get("sesso");
-    const eta = formData.get("eta");
-    const nome = formData.get("nome");
-    const razza = formData.get("razza");
-    const pedigree = formData.get("pedigree");
-    const luogo = formData.get("luogo");
-    const descrizione = formData.get("descrizione");
-    const immagine = formData.get("immagine");
-    app.createDogForUser(
-      app.session.id_user,
-      sesso,
-      eta,
-      nome,
-      razza,
-      pedigree,
-      luogo,
-      descrizione,
-      immagine
-    );
-    alert("Cane aggiunto con successo");
+  // Navigazione alla home page
+  const homePageButton = document.getElementById("logo");
+  homePageButton.addEventListener("click", () => {
+    window.location.href = "../homePage/index.html";
   });
-
-  filterDogsForm.addEventListener("submit", (event) => {
-    event.preventDefault();
-    const formData = new FormData(filterDogsForm);
-    const sesso = formData.get("sesso");
-    const eta = formData.get("eta");
-    const razza = formData.get("razza");
-    const pedigree = formData.get("pedigree");
-    const luogo = formData.get("luogo");
-    app.filterDogs(sesso, eta, razza, pedigree, luogo);
-  });
-
-  showDogsButton.addEventListener("click", () => {
-    app.showDogs();
-  });
-}
+});
