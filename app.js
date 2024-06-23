@@ -93,6 +93,7 @@ class App {
       userId
     );
     this.users.addDogToUser(userId, dogId);
+    this.saveDogs();
   }
 
   getUserDogs(userId) {
@@ -103,14 +104,38 @@ class App {
     return this.dogs.getDogById(dogId);
   }
 
-  updateDog(dogId, updates) {
-    this.dogs.updateDog(dogId, updates);
+  saveDogs() {
+    this.dogs.saveDogs();
+  }
+
+  updateDog(
+    dogId,
+    sesso,
+    eta,
+    nome,
+    razza,
+    pedigree,
+    luogo,
+    descrizione,
+    immagine
+  ) {
+    this.dogs.updateDog(
+      dogId,
+      sesso,
+      eta,
+      nome,
+      razza,
+      pedigree,
+      luogo,
+      descrizione,
+      immagine
+    );
   }
 
   deleteDogInfo(dogId) {
-    this.dogs.dogs = this.dogs.dogs.filter((dog) => dog.id_dog !== dogId);
-    this.dogs.saveDogs();
+    this.dogs.deleteDog(dogId);
   }
+
   getRequestsSent(userId) {
     return this.users.getRequestsSent(userId);
   }

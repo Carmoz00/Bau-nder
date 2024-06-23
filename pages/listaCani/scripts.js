@@ -47,7 +47,7 @@ if (!isLogged) {
 
       userDogs.forEach((dog) => {
         const row = document.createElement("tr");
-        row.dataset.id_dog = dog.id; // Associa l'ID del cane alla riga
+        row.dataset.id_dog = dog.id_dog; // Associa l'ID del cane alla riga
 
         row.innerHTML = `
           <td><img src="${dog.immagine}" alt="${
@@ -77,4 +77,5 @@ if (!isLogged) {
   };
 
   document.addEventListener("DOMContentLoaded", displayUserDogs);
+  window.displayUserDogs = displayUserDogs; // Rendi disponibile globalmente la funzione
 }
