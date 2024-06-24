@@ -5,7 +5,7 @@ class App {
   constructor() {
     this.users = new ControllerUsers();
     this.dogs = new ControllerDogs();
-    this.session = null;
+    this.session = JSON.parse(localStorage.getItem("session")) || null;
   }
 
   signup(username, password, email, phone) {
@@ -36,6 +36,7 @@ class App {
       this.session = user;
       alert(user.username);
       alert(user.email);
+      localStorage.setItem("session", JSON.stringify(user));
       console.log("Login effettuato correttamente");
       return "Login effettuato correttamente";
     } else {
@@ -155,14 +156,17 @@ class App {
     const user1 = this.users.getUserById(user1Id);
     const user2 = this.users.getUserById(user2Id);
 
+    console.log(`User1: ${JSON.stringify(user1)}`);
+    console.log(`User2: ${JSON.stringify(user2)}`);
+
     if (user1 && user2) {
       user1.richiesteInviate.push({ userId: user2Id, dogId: dog2Id });
       user2.richiesteRicevute.push({ userId: user1Id, dogId: dog1Id });
 
       this.users.saveUsers();
-      console.log("Richiesta di match inviata.");
+      return "Richiesta di match inviata con successo.";
     } else {
-      console.log("Utente non trovato.");
+      return "Utente non trovato.";
     }
   }
 
@@ -171,20 +175,20 @@ class App {
     return "Profilo aggiornato con successo!";
   }
 
-  acceptMatch(user2Id, user1Id) {
+  acceptMatch(ownerId, user1Id) {
     const user1 = this.users.getUserById(user1Id);
-    const user2 = this.users.getUserById(user2Id);
+    const user2 = this.users.getUserById(ownerId);
 
     if (user1 && user2) {
       const request = user2.richiesteRicevute.find(
         (req) => req.userId === user1Id
       );
       if (request) {
-        user1.listaMatch.push(user2Id);
+        user1.listaMatch.push(ownerId);
         user2.listaMatch.push(user1Id);
 
         user1.richiesteInviate = user1.richiesteInviate.filter(
-          (req) => req.userId !== user2Id
+          (req) => req.userId !== ownerId
         );
         user2.richiesteRicevute = user2.richiesteRicevute.filter(
           (req) => req.userId !== user1Id

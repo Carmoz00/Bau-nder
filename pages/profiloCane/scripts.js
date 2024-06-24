@@ -41,7 +41,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const inviaRichiestaButton = document.getElementById("button-inviaRichiesta");
   inviaRichiestaButton.addEventListener("click", () => {
-    alert("Richiesta match inviata!");
-    // Logica per l'invio della richiesta match può essere aggiunta qui
+    const session = JSON.parse(localStorage.getItem("session"));
+    if (!session) {
+      alert("Devi essere loggato per inviare una richiesta di match");
+      window.location.href = "../login/index.html";
+      return;
+    }
+
+    const user1Id = session.id_user;
+    const dog1Id = dog.id_dog;
+    const user2Id = dog.ownerId;
+    const dog2Id = dog.id_dog;
+
+    console.log(`Utente loggato ID: ${user1Id}`);
+    console.log(`Cane ID: ${dog1Id}, Proprietario ID: ${user2Id}`);
+
+    const message = app.matchRequest(user1Id, dog1Id, user2Id, dog2Id);
+    alert(message);
   });
 });

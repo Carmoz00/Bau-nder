@@ -24,7 +24,10 @@ class ControllerUsers {
   }
 
   getUserById(id) {
-    return this.users.find((user) => user.id_user === id);
+    console.log(`Cercando utente con ID: ${id}`);
+    const user = this.users.find((user) => user.id_user === id);
+    console.log(`Utente trovato: ${JSON.stringify(user)}`);
+    return user;
   }
 
   authenticate(email, password) {
