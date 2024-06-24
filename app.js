@@ -34,6 +34,8 @@ class App {
     const user = this.users.authenticate(email, password);
     if (user) {
       this.session = user;
+      alert(user.username);
+      alert(user.email);
       console.log("Login effettuato correttamente");
       return "Login effettuato correttamente";
     } else {
@@ -81,7 +83,7 @@ class App {
     descrizione,
     immagine
   ) {
-    const dogId = this.dogs.create(
+    const dog = this.dogs.create(
       sesso,
       eta,
       nome,
@@ -92,7 +94,7 @@ class App {
       immagine,
       userId
     );
-    this.users.addDogToUser(userId, dogId);
+    this.users.addDogToUser(userId, dog);
     this.saveDogs();
   }
 
@@ -130,6 +132,7 @@ class App {
       descrizione,
       immagine
     );
+    this.saveDogs();
   }
 
   deleteDogInfo(dogId) {

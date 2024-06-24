@@ -76,7 +76,7 @@ class ControllerDogs {
       }
       return dog;
     });
-    this.saveDogs();
+    // this.saveDogs();
   }
 
   deleteDog(id) {

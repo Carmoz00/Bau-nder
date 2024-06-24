@@ -15,7 +15,7 @@ if (!isLogged) {
 
   const urlParams = new URLSearchParams(window.location.search);
   const dogId = localStorage.getItem("selectedDogId");
-
+  alert(dogId);
   const form = document.getElementById("edit-dog-form");
 
   // Carica i dati del cane
@@ -71,7 +71,7 @@ if (!isLogged) {
         );
 
         alert("Profilo cane aggiornato con successo!");
-        window.location.href = "../homePage/index.html";
+        window.location.href = "../listaCani/index.html";
       };
       reader.readAsDataURL(immagine);
     } else {
@@ -87,7 +87,7 @@ if (!isLogged) {
       );
 
       alert("Profilo cane aggiornato con successo!");
-      window.location.href = "../homePage/index.html";
+      window.location.href = "../listaCani/index.html";
     }
     app.saveDogs();
     alert(app.getDogInfo(dogId).eta);
