@@ -12,7 +12,7 @@ if (!isLogged) {
 
   const user = JSON.parse(localStorage.getItem("user"));
   const userId = user.id_user;
-
+  alert(userId);
   const form = document.getElementById("add-dog-form");
 
   form.addEventListener("submit", async (event) => {

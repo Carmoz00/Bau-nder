@@ -34,6 +34,7 @@ class ControllerUsers {
 
   addDogToUser(userId, dogId) {
     const user = this.getUserById(userId);
+    alert(user.username);
     if (user) {
       user.dogIds.push(dogId);
       this.saveUsers();
