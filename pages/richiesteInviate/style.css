@@ -31,5 +31,50 @@ body {
 
 .titolo {
   font-size: 24px;
-  color: #f9f9f9;
+  color: #4caf50;
+}
+
+#requests-sent-list {
+  margin: 20px auto;
+  padding: 10px;
+  width: 80%;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.div-request {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.div-request:hover {
+  background-color: #e0e0e0;
+}
+
+.request-info {
+  display: flex;
+  align-items: center;
+}
+
+.dog-thumbnail {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.dog-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.dog-details p {
+  margin: 0;
 }

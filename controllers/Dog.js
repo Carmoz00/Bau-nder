@@ -48,35 +48,13 @@ class ControllerDogs {
     return this.dogs.filter((dog) => dog.ownerId === userId);
   }
 
-  updateDog(
-    id,
-    sesso,
-    eta,
-    nome,
-    razza,
-    pedigree,
-    luogo,
-    descrizione,
-    immagine
-  ) {
+  updateDog(id, updatedDog) {
     this.dogs = this.dogs.map((dog) => {
       if (dog.id_dog === id) {
-        return {
-          ...dog,
-          sesso: sesso !== undefined ? sesso : dog.sesso,
-          eta: eta !== undefined ? eta : dog.eta,
-          nome: nome !== undefined ? nome : dog.nome,
-          razza: razza !== undefined ? razza : dog.razza,
-          pedigree: pedigree !== undefined ? pedigree : dog.pedigree,
-          luogo: luogo !== undefined ? luogo : dog.luogo,
-          descrizione:
-            descrizione !== undefined ? descrizione : dog.descrizione,
-          immagine: immagine !== undefined ? immagine : dog.immagine,
-        };
+        return { ...dog, ...updatedDog };
       }
       return dog;
     });
-    // this.saveDogs();
   }
 
   deleteDog(id) {

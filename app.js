@@ -107,32 +107,15 @@ class App {
     return this.dogs.getDogById(dogId);
   }
 
+  getUserInfo(userId) {
+    return this.users.getUserById(userId);
+  }
   saveDogs() {
     this.dogs.saveDogs();
   }
 
-  updateDog(
-    dogId,
-    sesso,
-    eta,
-    nome,
-    razza,
-    pedigree,
-    luogo,
-    descrizione,
-    immagine
-  ) {
-    this.dogs.updateDog(
-      dogId,
-      sesso,
-      eta,
-      nome,
-      razza,
-      pedigree,
-      luogo,
-      descrizione,
-      immagine
-    );
+  updateDog(dogId, dogData) {
+    this.dogs.updateDog(dogId, dogData);
     this.saveDogs();
   }
 
@@ -186,14 +169,6 @@ class App {
       if (request) {
         user1.listaMatch.push(ownerId);
         user2.listaMatch.push(user1Id);
-
-        user1.richiesteInviate = user1.richiesteInviate.filter(
-          (req) => req.userId !== ownerId
-        );
-        user2.richiesteRicevute = user2.richiesteRicevute.filter(
-          (req) => req.userId !== user1Id
-        );
-
         this.users.saveUsers();
 
         console.log("Match effettuato!");
