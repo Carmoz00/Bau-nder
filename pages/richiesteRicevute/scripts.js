@@ -1,42 +1,81 @@
 import { app } from "../../app.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  const requestsReceivedListContainer = document.getElementById(
+  const session = JSON.parse(localStorage.getItem("session"));
+  if (!session) {
+    alert("Devi essere loggato per vedere le richieste ricevute");
+    window.location.href = "../login/index.html";
+    return;
+  }
+
+  const requestsReceived = app.getRequestsReceived(session.id_user);
+
+  const requestsReceivedList = document.getElementById(
     "requests-received-list"
   );
 
-  // Carica le richieste ricevute
-  const userId = app.session.id_user;
-  const requestsReceived = app.getRequestsReceived(userId);
-
-  // Pulisci il contenitore delle richieste
-  requestsReceivedListContainer.innerHTML = "";
-
   if (requestsReceived.length === 0) {
-    requestsReceivedListContainer.innerHTML =
-      "<p>Non ci sono richieste ricevute.</p>";
+    requestsReceivedList.innerHTML = "<p>Non ci sono richieste ricevute.</p>";
   } else {
-    requestsReceived.forEach((request) => {
-      const requestDiv = document.createElement("div");
-      requestDiv.classList.add("div-request");
+    const table = document.createElement("table");
+    table.classList.add("requests-table");
 
-      // Contenuto della richiesta
-      requestDiv.innerHTML = `
-        <div class="request-info">Richiesta da utente ID: ${request.userId} per cane ID: ${request.dogId}</div>
-        <button class="accept-button">Accetta</button>
-        <button class="reject-button">Rifiuta</button>
+    table.innerHTML = `
+      <thead>
+        <tr>
+          <th>Username Richiedente</th>
+          <th>Nome del Cane</th>
+          <th>Foto del Cane</th>
+          <th>Stato</th>
+        </tr>
+      </thead>
+      <tbody>
+      </tbody>
+    `;
+
+    const tbody = table.querySelector("tbody");
+
+    requestsReceived.forEach((request, index) => {
+      if (!request.userId || !request.dogId) {
+        console.warn(`Richiesta ${index} ha ID undefined`, request);
+        return;
+      }
+
+      const user = app.getUserInfo(request.userId);
+      const dog = app.getDogInfo(request.dogId);
+
+      if (!user || !dog) {
+        console.warn(
+          `Utente o cane non trovati per la richiesta ${index}`,
+          request
+        );
+        return;
+      }
+
+      const tr = document.createElement("tr");
+      tr.classList.add("request-row");
+      tr.innerHTML = `
+        <td>${user.username}</td>
+        <td>${dog.nome}</td>
+        <td><img src="${dog.immagine}" alt="${
+        dog.nome
+      }" class="thumbnail"/></td>
+        <td class="status">${request.status || "in attesa..."}</td>
       `;
 
-      // Aggiungi evento per accettare la richiesta
-      requestDiv
-        .querySelector(".accept-button")
-        .addEventListener("click", () => {
-          const message = app.acceptMatch(userId, request.userId);
-          alert(message);
-          window.location.reload();
-        });
+      tr.addEventListener("click", () => {
+        localStorage.setItem("selectedRequestId", request.dogId);
+        window.location.href = "../profiloCaneRichiesta/index.html";
+      });
 
-      requestsReceivedListContainer.appendChild(requestDiv);
+      tbody.appendChild(tr);
     });
+
+    requestsReceivedList.appendChild(table);
   }
+
+  const homePageButton = document.getElementById("logo");
+  homePageButton.addEventListener("click", () => {
+    window.location.href = "../homePage/index.html";
+  });
 });
